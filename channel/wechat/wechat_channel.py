@@ -38,6 +38,20 @@ def handler_group_msg(msg):
     WechatChannel().handle_group(WeChatMessage(msg,True))
     return None
 
+@itchat.msg_register(FRIENDS)
+def add_friend(msg):
+    print("收到好友邀请")
+    
+    print("以下是msg的属性")
+    for attr, value in vars(msg).items():
+        print(f"{attr}: {value}")
+    
+    print("以下是msg.user的属性")
+    for attr, value in vars(msg.user).items():
+        print(f"{attr}: {value}")
+    # msg.user.verify()
+    # msg.user.send('Nice to meet you!')
+
 def _check(func):
     def wrapper(self, cmsg: ChatMessage):
         msgId = cmsg.msg_id

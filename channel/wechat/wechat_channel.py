@@ -40,12 +40,10 @@ def handler_group_msg(msg):
 
 @itchat.msg_register(FRIENDS)
 def add_friend(msg):
-    print("收到好友邀请")
-    
+    print("收到好友邀请")   
     print("以下是msg的属性")
     for attr, value in vars(msg).items():
-        print(f"{attr}: {value}")
-    
+        print(f"{attr}: {value}")    
     print("以下是msg.user的属性")
     for attr, value in vars(msg.user).items():
         print(f"{attr}: {value}")
